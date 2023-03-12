@@ -67,7 +67,7 @@ header {
           border-radius: 0.25em;
           text-decoration: none;
           padding: 0.5em 1em;
-          transition: background-color 0.4s;
+          transition: background-color 0.4s, color 0.4s;
           font-weight: 700;
         }
 
