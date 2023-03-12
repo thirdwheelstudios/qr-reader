@@ -58,6 +58,7 @@ header {
       margin-block-start: unset;
       margin-block-end: unset;
       padding-inline-start: 0;
+      font-size: 1.2rem;
 
       li {
         margin: 0.5em;
@@ -69,6 +70,7 @@ header {
           padding: 0.5em 1em;
           transition: background-color 0.4s, color 0.4s;
           font-weight: 700;
+          color: #303030
         }
 
         .nav-link.router-link-active,
