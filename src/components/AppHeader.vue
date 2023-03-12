@@ -1,12 +1,27 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const showMenu = ref(false)
+</script>
+
 <template>
   <header>
     <router-link to="/" class="navbar-brand">QR Reader</router-link>
-    <nav>
-      <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-      </ul>
-    </nav>
+    <div>
+      <nav :class="{ 'show-menu': showMenu }">
+        <button
+          type="button"
+          title="Show navigation menu"
+          @click="showMenu = true"
+        >
+          <font-awesome-icon :icon="['fas', 'bars']" size="2x" />
+        </button>
+        <ul>
+          <li><router-link to="/" class="nav-link">Home</router-link></li>
+          <li><router-link to="/about" class="nav-link">About</router-link></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -14,6 +29,10 @@
 header {
   display: flex;
   justify-content: space-between;
+  background-color: #f9f9fe;
+  border-bottom: 1px solid #e4e5fc;
+  box-shadow: 0 1px 3px #b8bce854;
+  padding: 0.5em;
 
   .navbar-brand {
     text-decoration: none;
@@ -27,6 +46,12 @@ header {
   }
 
   nav {
+    button {
+      border: 1px solid #e4e5fc;
+      box-shadow: 1px 1px 3px #b8bce854;
+      display: none;
+    }
+
     ul {
       list-style: none;
       display: flex;
@@ -35,7 +60,43 @@ header {
       padding-inline-start: 0;
 
       li {
-        margin-left: 1rem;
+        margin: 0.5em;
+        margin-right: 0;
+
+        .nav-link {
+          border-radius: 0.25em;
+          text-decoration: none;
+          padding: 0.5em 1em;
+          transition: background-color 0.4s;
+          font-weight: 700;
+        }
+
+        .nav-link.router-link-active,
+        .nav-link:hover {
+          background-color: #6a7cfd;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  nav.show-menu {
+    ul {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    nav,
+    nav.show-menu {
+      button {
+        display: none;
+      }
+
+      ul {
+        display: flex;
       }
     }
   }
