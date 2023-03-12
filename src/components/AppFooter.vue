@@ -7,3 +7,9 @@ const currentYear = ref(new Date().getFullYear())
 <template>
   <footer>© {{ currentYear }} thirdwheel studios</footer>
 </template>
+
+<style scoped lang="scss">
+footer {
+  text-align: center;
+}
+</style>
