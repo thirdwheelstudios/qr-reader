@@ -1,23 +1,15 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const showMenu = ref(false)
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <header>
     <router-link to="/" class="navbar-brand">QR Reader</router-link>
     <div>
-      <nav :class="{ 'show-menu': showMenu }">
-        <button
-          type="button"
-          title="Show navigation menu"
-          @click="showMenu = true"
-        >
-          <font-awesome-icon :icon="['fas', 'bars']" size="2x" />
-        </button>
+      <nav>
         <ul>
-          <li><router-link to="/" class="nav-link">Home</router-link></li>
+          <li><router-link to="/" class="nav-link">Scan</router-link></li>
+          <li>
+            <router-link to="/history" class="nav-link">History</router-link>
+          </li>
           <li><router-link to="/about" class="nav-link">About</router-link></li>
         </ul>
       </nav>
@@ -46,12 +38,6 @@ header {
   }
 
   nav {
-    button {
-      border: 1px solid #e4e5fc;
-      box-shadow: 1px 1px 3px #b8bce854;
-      display: none;
-    }
-
     ul {
       list-style: none;
       display: flex;
@@ -70,7 +56,7 @@ header {
           padding: 0.5em 1em;
           transition: background-color 0.4s, color 0.4s;
           font-weight: 700;
-          color: #303030
+          color: #303030;
         }
 
         .nav-link.router-link-active,
@@ -78,27 +64,6 @@ header {
           background-color: #6a7cfd;
           color: #fff;
         }
-      }
-    }
-  }
-
-  nav.show-menu {
-    ul {
-      display: block;
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  header {
-    nav,
-    nav.show-menu {
-      button {
-        display: none;
-      }
-
-      ul {
-        display: flex;
       }
     }
   }
