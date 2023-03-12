@@ -1,21 +1,54 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <AppHeader />
+  <main>
+    <router-view />
+  </main>
+  <AppFooter />
 </template>
 
-<style>
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Baloo 2', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #303030;
+}
+
+html {
+  body {
+    margin: 0;
+  }
+}
+
+main {
+  padding: 0.5em;
+}
+
+button {
+  background-color: #6a7cfd;
+  color: #fff;
+  border: 1px solid #6a7cfd;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  font-size: 1.2rem;
+  box-shadow: 0 1px 5px #ccc;
+  cursor: pointer;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+button:hover {
+  background-color: #7686fd;
+}
+
+button[disabled] {
+  background-color: #b2b5ca;
+  color: #e9e9ec;
+  border-color: #e9e9ec;
+  cursor: not-allowed;
 }
 </style>
