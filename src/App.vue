@@ -28,4 +28,27 @@ html {
 main {
   padding: 0.5em;
 }
+
+button {
+  background-color: #6a7cfd;
+  color: #fff;
+  border: 1px solid #6a7cfd;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  font-size: 1.2rem;
+  box-shadow: 0 1px 5px #ccc;
+  cursor: pointer;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+button:hover {
+  background-color: #7686fd;
+}
+
+button[disabled] {
+  background-color: #b2b5ca;
+  color: #e9e9ec;
+  border-color: #e9e9ec;
+  cursor: not-allowed;
+}
 </style>
