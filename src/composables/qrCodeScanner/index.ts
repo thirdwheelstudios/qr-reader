@@ -12,14 +12,13 @@ export function useQrCodeScanner() {
     return result
   }
 
-  const startScanning = (videoElem: HTMLVideoElement) => {
-    const scanner = new QrScanner(
-      videoElem,
-      (result) => console.log(result),
-      {
-        returnDetailedScanResult: true,
-      }
-    )
+  const startScanning = (
+    videoElem: HTMLVideoElement,
+    result: (scanResult: QrScanner.ScanResult) => void
+  ) => {
+    const scanner = new QrScanner(videoElem, result, {
+      returnDetailedScanResult: true,
+    })
 
     scanner.start()
 
