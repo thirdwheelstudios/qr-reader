@@ -8,30 +8,43 @@ import { useQrCodeScanner } from '../composables'
 const { readQrCodeFromFile } = useQrCodeScanner()
 
 const fileInput = ref<HTMLInputElement>()
-const isScanning = ref(false)
+const showScanDialog = ref(false)
+const inputDisabled = ref(false)
 const scanResult = ref<QrScanner.ScanResult>()
 
-const readFile = async () => {
+const onFileChange = async () => {
   if (!fileInput.value?.files) return
 
-  const result = await readQrCodeFromFile(fileInput.value.files[0])
+  try {
+    inputDisabled.value = true
 
-  handleScanResult(result)
+    const result = await readQrCodeFromFile(fileInput.value.files[0])
+
+    handleScanResult(result)
+  } finally {
+    inputDisabled.value = false
+  }
+}
+
+const onScanClick = () => {
+  showScanDialog.value = true
+  inputDisabled.value = true
 }
 
 const handleScanResult = (data: QrScanner.ScanResult) => {
   scanResult.value = data
-  isScanning.value = false
+  showScanDialog.value = false
+  inputDisabled.value = false
 }
 </script>
 
 <template>
   <div>
-    <button type="button" @click="isScanning = true">
+    <button type="button" @click="onScanClick" :disabled="inputDisabled">
       Scan <font-awesome-icon :icon="['fas', 'qrcode']" /> using camera
     </button>
     <small>Use this option to scan a QR Code using your devices camera</small>
-    <button type="button" @click="fileInput?.click">
+    <button type="button" @click="fileInput?.click" :disabled="inputDisabled">
       Open <font-awesome-icon :icon="['fas', 'qrcode']" /> from an image
     </button>
     <small
@@ -41,15 +54,15 @@ const handleScanResult = (data: QrScanner.ScanResult) => {
       ref="fileInput"
       type="file"
       placeholder="Choose an image containing a QR code"
-      @change="readFile"
+      @change="onFileChange"
       accept="image/*"
     />
     <ScanResultPanel :scan-result="scanResult" />
   </div>
   <Transition>
     <CameraScanDialog
-      v-if="isScanning"
-      @cancel="isScanning = false"
+      v-if="showScanDialog"
+      @cancel="showScanDialog = false"
       @scan-result="handleScanResult"
     />
   </Transition>
