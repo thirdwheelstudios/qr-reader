@@ -61,7 +61,7 @@ header {
           .nav-link {
             border-radius: 0.25em;
             text-decoration: none;
-            padding: 0.5em 1em;
+            padding: 0.25em 0.5em;
             transition: background-color 0.4s, color 0.4s;
             font-weight: 700;
             color: #303030;
