@@ -42,7 +42,7 @@ button {
 }
 
 button.gradient {
-  background: linear-gradient(90deg, #2868d9, #6a7cfd, #2868d9);
+  background: linear-gradient(90deg, #6a7cfd, #466eee, #6a7cfd);
   background-size: 200% 200%;
   -webkit-animation: animateGradient 2s infinite;
   -moz-animation: animateGradient 2s infinite;
@@ -58,6 +58,12 @@ button[disabled] {
   color: #e9e9ec;
   border-color: #e9e9ec;
   cursor: not-allowed;
+}
+
+button.gradient[disabled] {
+  background: linear-gradient(90deg, #b2b5ca, #8e98b7, #b2b5ca);
+  background-size: 200% 200%;
+  border-color: #b2b5ca;
 }
 
 @keyframes animateGradient {
