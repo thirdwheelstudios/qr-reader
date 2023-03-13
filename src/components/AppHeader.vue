@@ -36,7 +36,7 @@ header {
 
     .navbar-brand {
       text-decoration: none;
-      background: linear-gradient(to right, #0a85ed, #0c63e7, #0d41e1);
+      background: linear-gradient(to right, #6a7cfd, #466eee, #2868d9);
       background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
