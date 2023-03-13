@@ -29,5 +29,7 @@ html {
 
 main {
   padding: 0.5em;
+  max-width: 900px;
+  margin: auto;
 }
 </style>
