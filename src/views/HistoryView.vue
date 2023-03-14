@@ -11,7 +11,11 @@ onMounted(async () => {
 </script>
 
 <template>
-  <template v-if="history?.length"></template>
+  <template v-if="history?.length">
+    <ul>
+      <li v-for="item of history" :key="item.id">{{ item.data }}</li>
+    </ul>
+  </template>
   <p v-else>
     Your previous <router-link to="/">scans</router-link> will appear here
   </p>
