@@ -12,17 +12,18 @@ onMounted(async () => {
 
 <template>
   <template v-if="history?.length">
+    <p>Here you will find your previously scanned QR code results:</p>
     <ul>
       <li v-for="item of history" :key="item.id">{{ item.data }}</li>
     </ul>
   </template>
-  <p v-else>
+  <p v-else class="centered">
     Your previous <router-link to="/">scans</router-link> will appear here
   </p>
 </template>
 
 <style scoped lang="scss">
-p {
+.centered {
   text-align: center;
 }
 </style>
