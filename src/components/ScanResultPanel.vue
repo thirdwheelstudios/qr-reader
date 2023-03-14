@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import QrScanner from 'qr-scanner'
+import { ScanResult } from '../models'
 
 interface Props {
-  scanResult?: QrScanner.ScanResult
+  scanResult?: ScanResult
 }
 
 defineProps<Props>()

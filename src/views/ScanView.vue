@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import QrScanner from 'qr-scanner'
 import { ref } from 'vue'
 import CameraScanDialog from '../components/CameraScanDialog.vue'
 import ScanResultPanel from '../components/ScanResultPanel.vue'
 import { useQrCodeScanner } from '../composables'
+import { ScanResult } from '../models'
 
 const { readQrCodeFromFile } = useQrCodeScanner()
 
 const fileInput = ref<HTMLInputElement>()
 const showScanDialog = ref(false)
 const inputDisabled = ref(false)
-const scanResult = ref<QrScanner.ScanResult>()
+const scanResult = ref<ScanResult>()
 
 const onFileChange = async () => {
   if (!fileInput.value?.files) return
@@ -31,7 +31,7 @@ const onScanClick = () => {
   inputDisabled.value = true
 }
 
-const handleScanResult = (data: QrScanner.ScanResult) => {
+const handleScanResult = (data: ScanResult) => {
   scanResult.value = data
   showScanDialog.value = false
   inputDisabled.value = false
