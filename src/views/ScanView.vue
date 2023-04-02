@@ -31,7 +31,7 @@ const onScanClick = () => {
   inputDisabled.value = true
 }
 
-const handleScanResult = (data: ScanResult) => {
+const handleScanResult = (data?: ScanResult) => {
   scanResult.value = data
   showScanDialog.value = false
   inputDisabled.value = false
@@ -62,7 +62,7 @@ const handleScanResult = (data: ScanResult) => {
   <Transition>
     <CameraScanDialog
       v-if="showScanDialog"
-      @cancel="showScanDialog = false"
+      @cancel="handleScanResult(undefined)"
       @scan-result="handleScanResult"
     />
   </Transition>
