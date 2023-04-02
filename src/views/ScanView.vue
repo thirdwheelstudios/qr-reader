@@ -21,6 +21,8 @@ const onFileChange = async () => {
     const result = await readQrCodeFromFile(fileInput.value.files[0])
 
     handleScanResult(result)
+
+    fileInput.value.value = ''
   } finally {
     inputDisabled.value = false
   }
