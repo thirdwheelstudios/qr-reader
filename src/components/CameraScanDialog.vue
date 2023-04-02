@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import QrScanner from 'qr-scanner'
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useQrCodeScanner } from '../composables'
+import { ScanResult } from '../models'
 
 const emit = defineEmits(['cancel', 'scan-result'])
 
@@ -10,7 +10,7 @@ const { startScanning, stopScanning } = useQrCodeScanner()
 const videoElem = ref<HTMLVideoElement>()
 
 onMounted(() => {
-  startScanning(videoElem.value!, (result: QrScanner.ScanResult) => {
+  startScanning(videoElem.value!, (result: ScanResult) => {
     if (result.data.length > 0) emit('scan-result', result)
   })
 })
@@ -66,6 +66,7 @@ onUnmounted(() => stopScanning)
       -webkit-animation: scan 3s linear infinite;
       -moz-animation: scan 3s linear infinite;
       animation: scan 3s linear infinite;
+      transition: opacity 0.4s ease-in;
     }
 
     p {
