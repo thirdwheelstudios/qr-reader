@@ -1,28 +1,42 @@
 <script setup lang="ts">
-import QrScanner from 'qr-scanner'
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useQrCodeScanner } from '../composables'
+import { ScanResult } from '../models'
 
 const emit = defineEmits(['cancel', 'scan-result'])
 
 const { startScanning, stopScanning } = useQrCodeScanner()
 
 const videoElem = ref<HTMLVideoElement>()
+const isStreamingVideo = ref(false)
+const interval = ref<number>()
 
 onMounted(() => {
-  startScanning(videoElem.value!, (result: QrScanner.ScanResult) => {
+  interval.value = setInterval(
+    () => {
+      isStreamingVideo.value = (videoElem.value?.readyState ?? 0) > 0
+    },
+    500,
+    []
+  )
+
+  startScanning(videoElem.value!, (result: ScanResult) => {
     if (result.data.length > 0) emit('scan-result', result)
   })
 })
 
-onUnmounted(() => stopScanning)
+onUnmounted(() => {
+  stopScanning()
+
+  if (interval.value) clearInterval(interval.value)
+})
 </script>
 
 <template>
   <div class="dialog-outer" @click.self="$emit('cancel')">
     <div class="video-container">
       <video ref="videoElem" />
-      <div class="scan-line"></div>
+      <div class="scan-line" :class="{ show: isStreamingVideo }"></div>
       <p>Place a QR code in front of the camera to scan it</p>
     </div>
   </div>
@@ -66,6 +80,12 @@ onUnmounted(() => stopScanning)
       -webkit-animation: scan 3s linear infinite;
       -moz-animation: scan 3s linear infinite;
       animation: scan 3s linear infinite;
+      transition: opacity 1s ease-in;
+      opacity: 0;
+    }
+
+    .scan-line.show {
+      opacity: 1;
     }
 
     p {

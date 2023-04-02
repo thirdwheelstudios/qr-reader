@@ -21,6 +21,8 @@ const onFileChange = async () => {
     const result = await readQrCodeFromFile(fileInput.value.files[0])
 
     handleScanResult(result)
+
+    fileInput.value.value = ''
   } finally {
     inputDisabled.value = false
   }
@@ -31,7 +33,7 @@ const onScanClick = () => {
   inputDisabled.value = true
 }
 
-const handleScanResult = (data: ScanResult) => {
+const handleScanResult = (data?: ScanResult) => {
   scanResult.value = data
   showScanDialog.value = false
   inputDisabled.value = false
@@ -48,7 +50,7 @@ const handleScanResult = (data: ScanResult) => {
       Read <font-awesome-icon :icon="['fas', 'qrcode']" /> from an image
     </button>
     <small
-      >Use this option if you have a QR code image saved on your computer</small
+      >Use this option to read a QR code image saved on your computer</small
     >
     <input
       ref="fileInput"
@@ -62,7 +64,7 @@ const handleScanResult = (data: ScanResult) => {
   <Transition>
     <CameraScanDialog
       v-if="showScanDialog"
-      @cancel="showScanDialog = false"
+      @cancel="handleScanResult(undefined)"
       @scan-result="handleScanResult"
     />
   </Transition>

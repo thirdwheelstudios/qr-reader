@@ -1,27 +1,73 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { ScanResult } from '../models'
 
 interface Props {
   scanResult?: ScanResult
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const copyResult = () => {
+  if (props.scanResult) {
+    navigator.clipboard.writeText(props.scanResult.data)
+  }
+}
+
+const isUrl = computed(() => {
+  const regex = /^(http(s)?:\/\/)?([a-zA-Z0-9_-]+\.)+[a-zA-Z]{2,20}(\/\S*)?$/
+
+  return regex.test(props.scanResult?.data || '')
+})
 </script>
 
 <template>
-  <div>
-    <p v-if="scanResult">{{ scanResult.data }}</p>
+  <div class="result-container">
+    <template v-if="scanResult">
+      <a
+        v-if="isUrl"
+        :href="scanResult.data"
+        title="Url contained within QR code"
+        target="_blank"
+        >{{ scanResult.data }}</a
+      >
+      <p v-else>{{ scanResult.data }}</p>
+      <button
+        type="button"
+        @click="copyResult"
+        title="Copy scan result to clipboard"
+      >
+        <font-awesome-icon :icon="['fas', 'copy']" />
+      </button>
+    </template>
     <p v-else>Waiting for scan result...</p>
   </div>
 </template>
 
 <style scoped lang="scss">
-div {
+.result-container {
   margin: 2em auto;
   background-color: #f9f9fe;
   border: 1px solid #e4e5fc;
   box-shadow: 0 1px 3px #b8bce854;
   border-radius: 0.5em;
   max-width: 500px;
+  display: flex;
+
+  :first-child {
+    flex-grow: 1;
+  }
+
+  > * {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+
+  button {
+    margin: 0.25em;
+    padding: 0.3em 0.5em;
+  }
 }
 </style>
