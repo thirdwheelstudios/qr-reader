@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { ScanResult } from '../models'
 
 interface Props {
@@ -12,12 +13,25 @@ const copyResult = () => {
     navigator.clipboard.writeText(props.scanResult.data)
   }
 }
+
+const isUrl = computed(() => {
+  const regex = /^(http(s)?:\/\/)?([a-zA-Z0-9_-]+\.)+[a-zA-Z]{2,20}(\/\S*)?$/
+
+  return regex.test(props.scanResult?.data || '')
+})
 </script>
 
 <template>
   <div class="result-container">
     <template v-if="scanResult">
-      <p>{{ scanResult.data }}</p>
+      <a
+        v-if="isUrl"
+        :href="scanResult.data"
+        title="Url contained within QR code"
+        target="_blank"
+        >{{ scanResult.data }}</a
+      >
+      <p v-else>{{ scanResult.data }}</p>
       <button
         type="button"
         @click="copyResult"
@@ -40,8 +54,15 @@ const copyResult = () => {
   max-width: 500px;
   display: flex;
 
-  p {
+  :first-child {
     flex-grow: 1;
+  }
+
+  > * {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   button {
