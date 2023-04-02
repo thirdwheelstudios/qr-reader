@@ -45,7 +45,7 @@ const handleScanResult = (data: ScanResult) => {
     </button>
     <small>Use this option to scan a QR Code using your devices camera</small>
     <button type="button" @click="fileInput?.click" :disabled="inputDisabled">
-      Open <font-awesome-icon :icon="['fas', 'qrcode']" /> from an image
+      Read <font-awesome-icon :icon="['fas', 'qrcode']" /> from an image
     </button>
     <small
       >Use this option if you have a QR code image saved on your computer</small
