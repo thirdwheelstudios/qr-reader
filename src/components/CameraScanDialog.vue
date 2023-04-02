@@ -8,24 +8,35 @@ const emit = defineEmits(['cancel', 'scan-result'])
 const { startScanning, stopScanning } = useQrCodeScanner()
 
 const videoElem = ref<HTMLVideoElement>()
-const isMounted = ref(false)
+const isStreamingVideo = ref(false)
+const interval = ref<number>()
 
 onMounted(() => {
+  interval.value = setInterval(
+    () => {
+      isStreamingVideo.value = (videoElem.value?.readyState ?? 0) > 0
+    },
+    500,
+    []
+  )
+
   startScanning(videoElem.value!, (result: ScanResult) => {
     if (result.data.length > 0) emit('scan-result', result)
   })
-
-  isMounted.value = true
 })
 
-onUnmounted(() => stopScanning)
+onUnmounted(() => {
+  stopScanning()
+
+  if (interval.value) clearInterval(interval.value)
+})
 </script>
 
 <template>
   <div class="dialog-outer" @click.self="$emit('cancel')">
     <div class="video-container">
       <video ref="videoElem" />
-      <div class="scan-line" :class="{ show: isMounted }"></div>
+      <div class="scan-line" :class="{ show: isStreamingVideo }"></div>
       <p>Place a QR code in front of the camera to scan it</p>
     </div>
   </div>
