@@ -3,7 +3,10 @@
 <template>
   <header>
     <div class="container">
-      <router-link to="/" class="navbar-brand">QR Reader</router-link>
+      <router-link to="/" class="navbar-brand"
+        ><img src="../assets/logo.svg" alt="QR Reader logo" /> QR
+        Reader</router-link
+      >
       <div>
         <nav>
           <ul>
@@ -37,12 +40,20 @@ header {
     .navbar-brand {
       text-decoration: none;
       background: linear-gradient(to right, #6a7cfd, #466eee, #2868d9);
-      background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
+      background-clip: text;
       text-transform: uppercase;
       font-weight: 700;
       font-size: 2rem;
+      display: flex;
+
+      img {
+        max-height: 32px;
+        max-width: 32px;
+        align-self: center;
+        padding-right: 0.25em;
+      }
     }
 
     nav {
