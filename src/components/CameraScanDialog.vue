@@ -8,11 +8,14 @@ const emit = defineEmits(['cancel', 'scan-result'])
 const { startScanning, stopScanning } = useQrCodeScanner()
 
 const videoElem = ref<HTMLVideoElement>()
+const isMounted = ref(false)
 
 onMounted(() => {
   startScanning(videoElem.value!, (result: ScanResult) => {
     if (result.data.length > 0) emit('scan-result', result)
   })
+
+  isMounted.value = true
 })
 
 onUnmounted(() => stopScanning)
@@ -22,7 +25,7 @@ onUnmounted(() => stopScanning)
   <div class="dialog-outer" @click.self="$emit('cancel')">
     <div class="video-container">
       <video ref="videoElem" />
-      <div class="scan-line"></div>
+      <div class="scan-line" :class="{ show: isMounted }"></div>
       <p>Place a QR code in front of the camera to scan it</p>
     </div>
   </div>
@@ -66,7 +69,12 @@ onUnmounted(() => stopScanning)
       -webkit-animation: scan 3s linear infinite;
       -moz-animation: scan 3s linear infinite;
       animation: scan 3s linear infinite;
-      transition: opacity 0.4s ease-in;
+      transition: opacity 1s ease-in;
+      opacity: 0;
+    }
+
+    .scan-line.show {
+      opacity: 1;
     }
 
     p {
