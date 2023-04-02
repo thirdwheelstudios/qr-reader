@@ -50,7 +50,7 @@ const handleScanResult = (data?: ScanResult) => {
       Read <font-awesome-icon :icon="['fas', 'qrcode']" /> from an image
     </button>
     <small
-      >Use this option if you have a QR code image saved on your computer</small
+      >Use this option to read a QR code image saved on your computer</small
     >
     <input
       ref="fileInput"
