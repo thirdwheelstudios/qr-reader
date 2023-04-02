@@ -4,8 +4,8 @@
   <header>
     <div class="container">
       <router-link to="/" class="navbar-brand"
-        ><img src="../assets/logo.svg" alt="QR Reader logo" /> QR
-        Reader</router-link
+        ><img src="../assets/logo.svg" alt="QR Reader logo" />
+        <div>QR Reader</div></router-link
       >
       <div>
         <nav>
@@ -52,7 +52,11 @@ header {
         max-height: 32px;
         max-width: 32px;
         align-self: center;
-        padding-right: 0.25em;
+        padding: 0.25em;
+      }
+
+      div {
+        display: none;
       }
     }
 
@@ -83,6 +87,18 @@ header {
             background-color: #6a7cfd;
             color: #fff;
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    .container {
+      .navbar-brand {
+        div {
+          display: block;
         }
       }
     }
