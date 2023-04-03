@@ -55,21 +55,24 @@ onUnmounted(() => {
   .video-container {
     position: relative;
     background-color: #f9f9fe;
+    width: calc(100% - 3em);
     max-width: 600px;
     border-radius: 0.25em;
     border: 1px solid #ccc;
     padding: 0.25em;
     margin: auto;
-    margin-top: 5em;
+    margin-top: 1em;
     cursor: default;
 
     video {
+      width: 100%;
       max-width: 600px;
       border-radius: 0.25em;
     }
 
     .scan-line {
       position: absolute;
+      display: none;
       top: 0.25em;
       left: 0.25em;
       width: calc(100% - 0.5em);
@@ -100,6 +103,18 @@ onUnmounted(() => {
   }
   50% {
     transform: translateY(330px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dialog-outer {
+    .video-container {
+      margin-top: 5em;
+
+      .scan-line {
+        display: block;
+      }
+    }
   }
 }
 </style>
