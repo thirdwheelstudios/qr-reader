@@ -3,6 +3,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const Scan = () => import('../views/ScanView.vue')
 const History = () => import('../views/HistoryView.vue')
 const About = () => import('../views/AboutView.vue')
+const PrivacyPolicy = () => import('../views/PrivacyPolicyView.vue')
 const NotFound = () => import('../views/NotFoundView.vue')
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: About,
+  },
+  {
+    path: '/privacy-policy',
+    name: 'privacy-policy',
+    component: PrivacyPolicy,
   },
   {
     path: '/:pathMatch(.*)*',

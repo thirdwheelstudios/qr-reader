@@ -5,7 +5,12 @@ const currentYear = ref(new Date().getFullYear())
 </script>
 
 <template>
-  <footer>© {{ currentYear }} thirdwheel studios</footer>
+  <footer>
+    © {{ currentYear }} thirdwheel studios -
+    <router-link to="/privacy-policy" class="nav-link"
+      >Privacy Policy</router-link
+    >
+  </footer>
 </template>
 
 <style scoped lang="scss">
