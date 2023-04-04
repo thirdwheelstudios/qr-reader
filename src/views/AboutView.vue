@@ -1,6 +1,20 @@
 <script setup lang="ts"></script>
 
 <template>
+  <h2>About QR Reader</h2>
+  <p>
+    QR Reader is a web-based application that allows you to scan any QR code
+    without downloading any software or an app. With its simple user interface,
+    you can easily scan or read a QR code from your images or with your device's
+    camera.
+  </p>
+  <p>
+    We respect your privacy and QR Reader does not collect any data outside of
+    your web browser. Our privacy policy statement is clear, direct, and easy to
+    understand, and it accurately reflects our site's data collection and use.
+    You can read our privacy policy
+    <router-link to="/privacy-policy">here</router-link>.
+  </p>
   <h2>What are QR Codes?</h2>
   <ul>
     <li>

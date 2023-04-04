@@ -29,12 +29,6 @@ const updatedDate = computed(() => {
     service, you agree to our collection and use of your information in
     accordance with this Privacy Policy.
   </p>
-  <p>
-    We respect your privacy and {{ appName }} does not collect any data outside
-    of your web browser. Our website privacy policy statement is clear, direct,
-    and easy to understand, and it accurately reflects our site's data
-    collection and use.
-  </p>
   <h3>Interpretation and Definitions</h3>
   <h4>Interpretation</h4>
   <p>
