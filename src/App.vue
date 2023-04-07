@@ -32,4 +32,8 @@ main {
   max-width: 900px;
   margin: auto;
 }
+
+.text-muted {
+  color: #8d8fa3;
+}
 </style>
