@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { ScanResult } from '../models'
+import { isValidUrl } from '../utils'
 
 interface Props {
   scanResult?: ScanResult
@@ -14,11 +15,7 @@ const copyResult = () => {
   }
 }
 
-const isUrl = computed(() => {
-  const regex = /^(http(s)?:\/\/)?([a-zA-Z0-9_-]+\.)+[a-zA-Z]{2,20}(\/\S*)?$/
-
-  return regex.test(props.scanResult?.data || '')
-})
+const isUrl = computed(() => isValidUrl(props.scanResult?.data || ''))
 </script>
 
 <template>
@@ -27,7 +24,7 @@ const isUrl = computed(() => {
       <a
         v-if="isUrl"
         :href="scanResult.data"
-        title="Url contained within QR code"
+        :title="`Visit ${scanResult.data}`"
         target="_blank"
         >{{ scanResult.data }}</a
       >
