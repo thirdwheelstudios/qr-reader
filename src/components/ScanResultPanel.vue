@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { ScanResult } from '../models'
 import { isValidUrl } from '../utils'
+import PanelContainer from './PanelContainer.vue'
 
 interface Props {
   scanResult?: ScanResult
@@ -19,7 +20,7 @@ const isUrl = computed(() => isValidUrl(props.scanResult?.data || ''))
 </script>
 
 <template>
-  <div class="result-container">
+  <PanelContainer class="result-container">
     <template v-if="scanResult">
       <a
         v-if="isUrl"
@@ -38,16 +39,11 @@ const isUrl = computed(() => isValidUrl(props.scanResult?.data || ''))
       </button>
     </template>
     <p v-else>Waiting for scan result...</p>
-  </div>
+  </PanelContainer>
 </template>
 
 <style scoped lang="scss">
 .result-container {
-  margin: 2em auto;
-  background-color: #f9f9fe;
-  border: 1px solid #e4e5fc;
-  box-shadow: 0 1px 3px #b8bce854;
-  border-radius: 0.5em;
   max-width: 500px;
   display: flex;
 
