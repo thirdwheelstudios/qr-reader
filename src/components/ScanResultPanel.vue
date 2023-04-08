@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { ScanResult } from '../models'
 import { isValidUrl } from '../utils'
 import PanelContainer from './PanelContainer.vue'
+import { useClipboard } from '../composables/clipboard'
 
 interface Props {
   scanResult?: ScanResult
@@ -10,9 +11,11 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const { copyToClipboard } = useClipboard()
+
 const copyResult = () => {
   if (props.scanResult) {
-    navigator.clipboard.writeText(props.scanResult.data)
+    copyToClipboard(props.scanResult.data)
   }
 }
 
