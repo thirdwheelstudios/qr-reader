@@ -23,7 +23,7 @@ export function useQrCodeScanner() {
       returnDetailedScanResult: true,
     })
 
-    return await mapAndSaveResult(result)
+    if (result?.data) return await mapAndSaveResult(result)
   }
 
   const startScanning = (
@@ -33,7 +33,7 @@ export function useQrCodeScanner() {
     const scanner = new QrScanner(
       videoElem,
       async (scanResult) => {
-        result(await mapAndSaveResult(scanResult))
+        if (scanResult?.data) result(await mapAndSaveResult(scanResult))
       },
       {
         returnDetailedScanResult: true,
