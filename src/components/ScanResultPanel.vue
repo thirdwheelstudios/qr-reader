@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { ScanResult } from '../models'
-import { isValidUrl } from '../utils'
 import PanelContainer from './PanelContainer.vue'
 import { useClipboard } from '../composables/clipboard'
+import { useUrlValidation } from '../composables'
 
 interface Props {
   scanResult?: ScanResult
@@ -12,21 +11,20 @@ interface Props {
 const props = defineProps<Props>()
 
 const { copyToClipboard } = useClipboard()
+const { isValidUrl } = useUrlValidation()
 
 const copyResult = () => {
   if (props.scanResult) {
     copyToClipboard(props.scanResult.data)
   }
 }
-
-const isUrl = computed(() => isValidUrl(props.scanResult?.data || ''))
 </script>
 
 <template>
   <PanelContainer class="result-container">
     <template v-if="scanResult">
       <a
-        v-if="isUrl"
+        v-if="isValidUrl(scanResult.data)"
         :href="scanResult.data"
         :title="`Visit ${scanResult.data}`"
         target="_blank"

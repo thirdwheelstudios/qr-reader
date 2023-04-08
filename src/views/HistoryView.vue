@@ -2,11 +2,16 @@
 import { ref, onMounted } from 'vue'
 import { ScanResult } from '../models'
 import { db } from '../persistence'
-import { isValidUrl, toDisplayDate } from '../utils'
 import PanelContainer from '../components/PanelContainer.vue'
-import { useClipboard } from '../composables/clipboard'
+import {
+  useClipboard,
+  useDateFormatter,
+  useUrlValidation,
+} from '../composables'
 
 const { copyToClipboard } = useClipboard()
+const { toDisplayDate } = useDateFormatter()
+const { isValidUrl } = useUrlValidation()
 
 const history = ref<ScanResult[]>()
 
