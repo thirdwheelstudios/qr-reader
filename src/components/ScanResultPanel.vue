@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { ScanResult } from '../models'
+import PanelContainer from './PanelContainer.vue'
+import { useClipboard } from '../composables/clipboard'
+import { useUrlValidation } from '../composables'
 
 interface Props {
   scanResult?: ScanResult
@@ -8,26 +10,23 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const { copyToClipboard } = useClipboard()
+const { isValidUrl } = useUrlValidation()
+
 const copyResult = () => {
   if (props.scanResult) {
-    navigator.clipboard.writeText(props.scanResult.data)
+    copyToClipboard(props.scanResult.data)
   }
 }
-
-const isUrl = computed(() => {
-  const regex = /^(http(s)?:\/\/)?([a-zA-Z0-9_-]+\.)+[a-zA-Z]{2,20}(\/\S*)?$/
-
-  return regex.test(props.scanResult?.data || '')
-})
 </script>
 
 <template>
-  <div class="result-container">
+  <PanelContainer class="result-container">
     <template v-if="scanResult">
       <a
-        v-if="isUrl"
+        v-if="isValidUrl(scanResult.data)"
         :href="scanResult.data"
-        title="Url contained within QR code"
+        :title="`Visit ${scanResult.data}`"
         target="_blank"
         >{{ scanResult.data }}</a
       >
@@ -41,16 +40,11 @@ const isUrl = computed(() => {
       </button>
     </template>
     <p v-else>Waiting for scan result...</p>
-  </div>
+  </PanelContainer>
 </template>
 
 <style scoped lang="scss">
 .result-container {
-  margin: 2em auto;
-  background-color: #f9f9fe;
-  border: 1px solid #e4e5fc;
-  box-shadow: 0 1px 3px #b8bce854;
-  border-radius: 0.5em;
   max-width: 500px;
   display: flex;
 
