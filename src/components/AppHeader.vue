@@ -12,6 +12,9 @@
           <ul>
             <li><router-link to="/" class="nav-link">Scan</router-link></li>
             <li>
+              <router-link to="/create" class="nav-link">Create</router-link>
+            </li>
+            <li>
               <router-link to="/history" class="nav-link">History</router-link>
             </li>
             <li>

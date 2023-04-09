@@ -1,0 +1,1 @@
+<template>Create QR Code</template>
