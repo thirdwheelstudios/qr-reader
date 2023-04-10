@@ -57,6 +57,10 @@ form {
     padding: 1em;
   }
 
+  p {
+    margin: 0.5em 0;
+  }
+
   .color-picker {
     display: inline-block;
     margin: 0 0.5em;
