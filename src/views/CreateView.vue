@@ -4,7 +4,7 @@ import QRCode from 'qrcode'
 
 const dataToEncode = ref('https://google.com')
 const encodedDataUrl = ref<string>()
-const lightColor = ref('#ffffff')
+const lightColor = ref('#f9f9fe')
 const darkColor = ref('#000000')
 
 const onSubmit = async () => {
@@ -33,8 +33,8 @@ watchEffect(() => {
       type="text"
       name="dataToEncode"
       v-model="dataToEncode"
-      placeholder="Enter data to encode in QR Code"
-      title="Data to encode in QR Code"
+      placeholder="Enter data for qr code"
+      title="Data to encode in qr code"
     />
     <img :src="encodedDataUrl" :title="dataToEncode" />
     <p>Set the qr code colors:</p>
@@ -51,10 +51,24 @@ watchEffect(() => {
 form {
   text-align: center;
 
+  input[type='text'] {
+    display: block;
+    margin: 1em auto;
+    padding: 0.75em 1em;
+    border-radius: 0.25em;
+    border: 1px solid #b8bce854;
+    box-shadow: 0 1px 3px #b8bce854;
+    width: 100%;
+    max-width: 270px;
+    font-size: 1rem;
+  }
+
   img {
     display: block;
-    margin: 0 auto;
-    padding: 1em;
+    margin: 0.5em auto;
+    padding: 0;
+    border-radius: 1em;
+    box-shadow: 0 1px 3px #b8bce854;
   }
 
   p {
