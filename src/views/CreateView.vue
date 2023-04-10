@@ -8,7 +8,6 @@ const lightColor = ref('#fff')
 const darkColor = ref('#000')
 
 const onSubmit = async () => {
-  console.log('submit')
   encodedDataUrl.value = await QRCode.toDataURL(dataToEncode.value, {
     width: 300,
     errorCorrectionLevel: 'H',
