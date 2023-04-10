@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watchEffect } from 'vue'
 import QRCode from 'qrcode'
 
 const dataToEncode = ref('https://google.com')
 const encodedDataUrl = ref<string>()
-const lightColor = ref('#fff')
-const darkColor = ref('#000')
+const lightColor = ref('#ffffff')
+const darkColor = ref('#000000')
 
 const onSubmit = async () => {
+  if (!dataToEncode.value) return
+
   encodedDataUrl.value = await QRCode.toDataURL(dataToEncode.value, {
     width: 300,
     errorCorrectionLevel: 'H',
@@ -19,6 +21,10 @@ const onSubmit = async () => {
 }
 
 onMounted(() => onSubmit())
+
+watchEffect(() => {
+  if (lightColor.value && darkColor.value) onSubmit()
+})
 </script>
 
 <template>
@@ -31,6 +37,13 @@ onMounted(() => onSubmit())
       title="Data to encode in QR Code"
     />
     <img :src="encodedDataUrl" :title="dataToEncode" />
+    <p>Set the qr code colors:</p>
+    <div class="color-picker">
+      <input type="color" name="darkColor" v-model="darkColor" /> QR Code
+    </div>
+    <div class="color-picker">
+      <input type="color" name="lightColor" v-model="lightColor" /> Background
+    </div>
   </form>
 </template>
 
@@ -42,6 +55,11 @@ form {
     display: block;
     margin: 0 auto;
     padding: 1em;
+  }
+
+  .color-picker {
+    display: inline-block;
+    margin: 0 0.5em;
   }
 }
 </style>
