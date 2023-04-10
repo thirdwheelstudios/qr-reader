@@ -23,7 +23,7 @@ const onSubmit = async () => {
 onMounted(() => onSubmit())
 
 watchEffect(() => {
-  if (lightColor.value && darkColor.value) onSubmit()
+  if (lightColor.value && darkColor.value && dataToEncode.value) onSubmit()
 })
 </script>
 
