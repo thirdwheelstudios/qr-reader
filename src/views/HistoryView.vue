@@ -30,7 +30,7 @@ onMounted(async () => {
 <template>
   <template v-if="history?.length">
     <h2>QR Scan History</h2>
-    <p>Here you will find your previously scanned QR code results:</p>
+    <p>Here you will find a history of your previously scanned QR codes:</p>
     <ul>
       <li v-for="item of history" :key="item.id">
         <PanelContainer class="history-item">
