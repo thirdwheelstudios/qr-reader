@@ -38,6 +38,9 @@ onUnmounted(() => {
       <video ref="videoElem" />
       <div class="scan-line" :class="{ show: isStreamingVideo }"></div>
       <p>Place a QR code in front of the camera to scan it</p>
+      <button type="button" title="Close dialog" @click="$emit('cancel')">
+        <font-awesome-icon :icon="['fas', 'times']" />
+      </button>
     </div>
   </div>
 </template>
@@ -93,6 +96,23 @@ onUnmounted(() => {
 
     p {
       margin: 0.5em;
+    }
+
+    button {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 42px;
+      width: 42px;
+      margin-left: calc(50% - 21px);
+      margin-bottom: 3.5em;
+      opacity: 0.8;
+      border-radius: 50%;
+      transition: opacity 0.2s ease-in;
+    }
+
+    button:hover {
+      opacity: 1;
     }
   }
 }
