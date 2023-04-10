@@ -101,6 +101,10 @@ onUnmounted(() => {
     button {
       position: absolute;
       bottom: 0;
+      left: 0;
+      height: 42px;
+      width: 42px;
+      margin-left: calc(50% - 21px);
       margin-bottom: 3.5em;
       opacity: 0.8;
       border-radius: 50%;
