@@ -29,12 +29,13 @@ watchEffect(() => {
 
 <template>
   <form @submit.prevent="onSubmit">
+    <p>Enter text for your qr code:</p>
     <input
       type="text"
       name="dataToEncode"
       v-model="dataToEncode"
-      placeholder="Enter data for qr code"
-      title="Data to encode in qr code"
+      placeholder="Enter text for qr code"
+      title="Text to encode in qr code"
     />
     <img :src="encodedDataUrl" :title="dataToEncode" />
     <p>Set the qr code colors:</p>
@@ -48,16 +49,22 @@ watchEffect(() => {
 </template>
 
 <style scoped lang="scss">
+$shadow-color: #b8bce854;
+
 form {
   text-align: center;
+
+  p {
+    margin: 0.5em 0;
+  }
 
   input[type='text'] {
     display: block;
     margin: 1em auto;
     padding: 0.75em 1em;
     border-radius: 0.25em;
-    border: 1px solid #b8bce854;
-    box-shadow: 0 1px 3px #b8bce854;
+    border: 1px solid $shadow-color;
+    box-shadow: 0 1px 3px $shadow-color;
     width: 100%;
     max-width: 270px;
     font-size: 1rem;
@@ -65,14 +72,10 @@ form {
 
   img {
     display: block;
-    margin: 0.5em auto;
+    margin: 1em auto;
     padding: 0;
     border-radius: 1em;
-    box-shadow: 0 1px 3px #b8bce854;
-  }
-
-  p {
-    margin: 0.5em 0;
+    box-shadow: 0 1px 3px $shadow-color;
   }
 
   .color-picker {
