@@ -104,9 +104,10 @@ onUnmounted(() => {
       margin-bottom: 3.5em;
       opacity: 0.8;
       border-radius: 50%;
+      transition: opacity 0.2s ease-in;
     }
 
-    button::hover {
+    button:hover {
       opacity: 1;
     }
   }
