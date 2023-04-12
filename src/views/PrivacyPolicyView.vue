@@ -20,7 +20,7 @@ const updatedDate = computed(() => {
 </script>
 
 <template>
-  <h2>Privacy Policy</h2>
+  <h1>Privacy Policy</h1>
   <small>last updated: {{ updatedDate }}</small>
   <p>
     This Privacy Policy outlines our policies and procedures for collecting,
@@ -29,14 +29,14 @@ const updatedDate = computed(() => {
     service, you agree to our collection and use of your information in
     accordance with this Privacy Policy.
   </p>
-  <h3>Interpretation and Definitions</h3>
-  <h4>Interpretation</h4>
+  <h2>Interpretation and Definitions</h2>
+  <h3>Interpretation</h3>
   <p>
     The words of which the initial letter is capitalized have meanings defined
     under the following conditions. The following definitions shall have the
     same meaning regardless of whether they appear in singular or in plural.
   </p>
-  <h4>Definitions</h4>
+  <h3>Definitions</h3>
   <p>For the purposes of this Privacy Policy:</p>
   <ul>
     <li>
@@ -122,14 +122,14 @@ const updatedDate = computed(() => {
       </p>
     </li>
   </ul>
-  <h3>Google AdSense</h3>
+  <h2>Google AdSense</h2>
   <p>
     We use Google AdSense to serve adverts to you. Google AdSense uses cookies
     to personalize ads and to analyze traffic. Information about your use of
     this site is shared with Google. By using this site, you agree to its use of
     cookies.
   </p>
-  <h3>Changes to this Privacy Policy</h3>
+  <h2>Changes to this Privacy Policy</h2>
   <p>
     We may update Our Privacy Policy from time to time. We will notify You of
     any changes by posting the new Privacy Policy on this page.
@@ -144,7 +144,7 @@ const updatedDate = computed(() => {
     Changes to this Privacy Policy are effective when they are posted on this
     page.
   </p>
-  <h3>Contact Us</h3>
+  <h2>Contact Us</h2>
   <p>
     If you have any questions about this Privacy Policy, You can contact us:
   </p>

@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <h2>About QR Reader</h2>
+  <h1>About QR Reader</h1>
   <p>
     QR Reader is a web-based application that allows you to scan any QR code
     without downloading any software or an app. With its simple user interface,
@@ -15,7 +15,7 @@
     You can read our privacy policy
     <router-link to="/privacy-policy">here</router-link>.
   </p>
-  <h2>What are QR Codes?</h2>
+  <h1>What are QR Codes?</h1>
   <ul>
     <li>
       QR code stands for quick response code and is a type of matrix barcode
