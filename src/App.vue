@@ -36,4 +36,8 @@ main {
 .text-muted {
   color: #8d8fa3;
 }
+
+h1 {
+  margin: 0.5em 0;
+}
 </style>

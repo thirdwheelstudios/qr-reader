@@ -42,6 +42,7 @@ const handleScanResult = (data?: ScanResult) => {
 
 <template>
   <div>
+    <h1>Scan a QR Code</h1>
     <button type="button" @click="onScanClick" :disabled="inputDisabled">
       Scan <font-awesome-icon :icon="['fas', 'qrcode']" /> using camera
     </button>
