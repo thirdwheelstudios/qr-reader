@@ -4,6 +4,7 @@ import CameraScanDialog from '../components/CameraScanDialog.vue'
 import ScanResultPanel from '../components/ScanResultPanel.vue'
 import { useQrCodeScanner } from '../composables'
 import { ScanResult } from '../models'
+import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions.vue'
 
 const { readQrCodeFromFile } = useQrCodeScanner()
 
@@ -75,17 +76,14 @@ const handleScanResult = (data?: ScanResult) => {
     <p>
       When you first use the scanner you may need to give QR Reader permssion to
       use your device's camera. If you need to change your camera settings, you
-      may see an icon in the address bar that looks like this:
+      may see an icon in the address bar that looks something like this:
     </p>
     <font-awesome-icon
       :icon="['fas', 'video-slash']"
       size="2x"
       class="camera-icon"
     />
-    <p>
-      Alternatively, instead of using your camera, you can read a QR Code from a
-      saved image or screenshot.
-    </p>
+    <FrequentlyAskedQuestions />
   </div>
   <Transition>
     <CameraScanDialog
