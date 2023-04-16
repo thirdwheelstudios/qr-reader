@@ -29,6 +29,7 @@ watchEffect(() => {
 
 <template>
   <form @submit.prevent="onSubmit">
+    <h1>Create a QR Code</h1>
     <p>Enter text for your qr code:</p>
     <input
       type="text"
