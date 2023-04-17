@@ -101,6 +101,7 @@ const handleScanResult = (data?: ScanResult) => {
   margin: auto;
 
   h1,
+  h2,
   p {
     text-align: left;
   }
