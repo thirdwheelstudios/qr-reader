@@ -6,7 +6,11 @@ const currentYear = ref(new Date().getFullYear())
 
 <template>
   <footer>
-    © {{ currentYear }} thirdwheel studios -
+    © {{ currentYear }}
+    <a href="https://thirdwheelstudios.com" target="_blank"
+      >thirdwheel studios</a
+    >
+    -
     <router-link to="/privacy-policy" class="nav-link"
       >Privacy Policy</router-link
     >

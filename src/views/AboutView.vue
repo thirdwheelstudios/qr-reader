@@ -15,6 +15,11 @@
     You can read our privacy policy
     <router-link to="/privacy-policy">here</router-link>.
   </p>
+  <p>
+    QR Reader was created by thirdwheel studios. For more information about QR
+    Reader and other apps visit the blog
+    <a href="https://thirdwheelstudios.com" target="_blank">here</a>.
+  </p>
   <h1>What are QR Codes?</h1>
   <ul>
     <li>
