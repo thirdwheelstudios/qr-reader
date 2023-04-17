@@ -43,12 +43,18 @@
     <summary>What are popular uses of QR Codes?</summary>
     QR Codes have many different use cases including, but not limited to:
     <ul>
-      <li>On event tickets to allow contactless entry and verfication</li>
+      <li>Used on event tickets to allow contactless entry and verfication</li>
       <li>
-        On product packaging to share product information and setup instructions
+        Used on product packaging to share product information and setup
+        instructions
       </li>
       <li>
-        In a museum or art gallery to provide more information about the subject
+        Used on posters and promotions to provide a convenient link to more
+        information
+      </li>
+      <li>
+        Used in a museum or art gallery to provide more information about the
+        subject
       </li>
       <li>As a digital gift voucher to be given as a present</li>
     </ul>
