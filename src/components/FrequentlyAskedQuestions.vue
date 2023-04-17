@@ -27,6 +27,32 @@
     Codes. These QR Codes are stored exclusively in your web browser and are
     never uploaded or shared anywhere else.
   </details>
+  <details>
+    <summary>Is it safe to use a QR code?</summary>
+    QR codes are not unsafe by themselves, but they may contain malicious data
+    that can harm your device or compromise your privacy. You should always scan
+    QR codes from trusted sources and avoid clicking on suspicious links.
+  </details>
+  <details>
+    <summary>How do I generate a QR Code?</summary>
+    QR Reader lets you generate QR Codes with ease. Just type in the information
+    you want to store and a QR Code will appear instantly for you to save and
+    share as you wish.
+  </details>
+  <details>
+    <summary>What are popular uses of QR Codes?</summary>
+    QR Codes have many different use cases including, but not limited to:
+    <ul>
+      <li>On event tickets to allow contactless entry and verfication</li>
+      <li>
+        On product packaging to share product information and setup instructions
+      </li>
+      <li>
+        In a museum or art gallery to provide more information about the subject
+      </li>
+      <li>As a digital gift voucher to be given as a present</li>
+    </ul>
+  </details>
 </template>
 
 <style scoped lang="scss">
