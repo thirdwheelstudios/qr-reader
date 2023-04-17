@@ -67,7 +67,7 @@ const handleScanResult = (data?: ScanResult) => {
       accept="image/*"
     />
     <ScanResultPanel :scan-result="scanResult" />
-    <h1>How does QR Reader work?</h1>
+    <h2>How does QR Reader work?</h2>
     <p>
       QR Reader uses native features in your web browser to scan QR Codes. This
       is how it is possible to scan QR Codes without installing any additional

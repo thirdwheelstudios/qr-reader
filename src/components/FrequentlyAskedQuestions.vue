@@ -1,5 +1,5 @@
 <template>
-  <h1>Frequently asked questions</h1>
+  <h2>Frequently asked questions</h2>
   <details>
     <summary>What is a QR Code?</summary>
     A QR Code is a type of barcode that can store various types of data. For
@@ -30,7 +30,7 @@
 </template>
 
 <style scoped lang="scss">
-h1,
+h2,
 details {
   text-align: left;
 }
