@@ -1,15 +1,15 @@
 <template>
   <h2>Frequently asked questions</h2>
   <details>
-    <summary>What is a QR Code?</summary>
-    A QR Code is a type of barcode that can store various types of data. For
-    example, a URL, a phone number, or a text message. QR Codes are used in a
+    <summary>What is a QR code?</summary>
+    A QR code is a type of barcode that can store various types of data. For
+    example, a URL, a phone number, or a text message. QR codes are used in a
     variety of applications, such as tracking inventory, sharing contact
     information, and more.
   </details>
   <details>
-    <summary>Can I scan a QR Code from a saved image?</summary>
-    You can scan QR Codes from images or screenshots without using your camera.
+    <summary>Can I scan a QR code from a saved image?</summary>
+    You can scan QR codes from images or screenshots without using your camera.
     As long as it is saved on your device.
   </details>
   <details>
@@ -24,7 +24,7 @@
     <summary>Does QR Reader use my data?</summary>
     QR Reader does not collect any data outside of your web browser. For your
     convenience, we keep a history of your previously scanned or created QR
-    Codes. These QR Codes are stored exclusively in your web browser and are
+    Codes. These QR codes are stored exclusively in your web browser and are
     never uploaded or shared anywhere else.
   </details>
   <details>
@@ -34,14 +34,15 @@
     QR codes from trusted sources and avoid clicking on suspicious links.
   </details>
   <details>
-    <summary>How do I generate a QR Code?</summary>
-    QR Reader lets you generate QR Codes with ease. Just type in the information
-    you want to store and a QR Code will appear instantly for you to save and
-    share as you wish.
+    <summary>How do I generate a QR code?</summary>
+    You can use QR Reader's QR code
+    <router-link to="/create">generator</router-link> to generate QR codes with
+    ease. Just type in the information you want to store and a QR code will
+    appear instantly for you to save and share as you wish.
   </details>
   <details>
-    <summary>What are popular uses of QR Codes?</summary>
-    QR Codes have many different use cases including, but not limited to:
+    <summary>What are popular uses of QR codes?</summary>
+    QR codes have many different use cases including, but not limited to:
     <ul>
       <li>Used on event tickets to allow contactless entry and verfication</li>
       <li>

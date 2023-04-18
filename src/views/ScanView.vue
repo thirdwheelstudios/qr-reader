@@ -43,16 +43,16 @@ const handleScanResult = (data?: ScanResult) => {
 
 <template>
   <div class="container">
-    <h1>Scan a QR Code</h1>
+    <h1>Scan a QR code</h1>
     <p>
-      QR Reader is a free online QR Code scanner that enables you to scan QR
+      QR Reader is a free online QR code scanner that enables you to scan QR
       Codes quickly and conveniently. You don't need to install anything or
       create an account. And it doesn't cost you a penny.
     </p>
     <button type="button" @click="onScanClick" :disabled="inputDisabled">
       Scan <font-awesome-icon :icon="['fas', 'qrcode']" /> using camera
     </button>
-    <small>Use this option to scan a QR Code using your devices camera</small>
+    <small>Use this option to scan a QR code using your devices camera</small>
     <button type="button" @click="fileInput?.click" :disabled="inputDisabled">
       Read <font-awesome-icon :icon="['fas', 'qrcode']" /> from an image
     </button>
@@ -69,8 +69,8 @@ const handleScanResult = (data?: ScanResult) => {
     <ScanResultPanel :scan-result="scanResult" />
     <h2>How does QR Reader work?</h2>
     <p>
-      QR Reader uses native features in your web browser to scan QR Codes. This
-      is how it is possible to scan QR Codes without installing any additional
+      QR Reader uses native features in your web browser to scan QR codes. This
+      is how it is possible to scan QR codes without installing any additional
       software.
     </p>
     <p>
@@ -82,6 +82,7 @@ const handleScanResult = (data?: ScanResult) => {
       :icon="['fas', 'video-slash']"
       size="2x"
       class="camera-icon"
+      title="Camera settings icon"
     />
     <FrequentlyAskedQuestions />
   </div>
