@@ -29,7 +29,7 @@ watchEffect(() => {
 
 <template>
   <form @submit.prevent="onSubmit">
-    <h1>Create a QR Code</h1>
+    <h1>Create a QR code</h1>
     <p>Enter text for your qr code:</p>
     <input
       type="text"
@@ -41,7 +41,7 @@ watchEffect(() => {
     <img :src="encodedDataUrl" :title="dataToEncode" />
     <p>Set the qr code colors:</p>
     <div class="color-picker">
-      <input type="color" name="darkColor" v-model="darkColor" /> QR Code
+      <input type="color" name="darkColor" v-model="darkColor" /> QR code
     </div>
     <div class="color-picker">
       <input type="color" name="lightColor" v-model="lightColor" /> Background

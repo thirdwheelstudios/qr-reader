@@ -20,7 +20,7 @@
     Reader and other apps visit the blog
     <a href="https://thirdwheelstudios.com" target="_blank">here</a>.
   </p>
-  <h1>What are QR Codes?</h1>
+  <h1>What are QR codes?</h1>
   <ul>
     <li>
       QR code stands for quick response code and is a type of matrix barcode
