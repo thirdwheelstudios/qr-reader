@@ -50,6 +50,7 @@ const copyResult = () => {
 
   :first-child {
     flex-grow: 1;
+    word-break: break-word;
   }
 
   > * {
@@ -60,7 +61,7 @@ const copyResult = () => {
   }
 
   button {
-    margin: 0.25em;
+    margin: auto 0.25em;
     padding: 0.3em 0.5em;
   }
 }

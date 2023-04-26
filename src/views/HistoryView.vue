@@ -34,7 +34,7 @@ onMounted(async () => {
     <ul>
       <li v-for="item of history" :key="item.id">
         <PanelContainer class="history-item">
-          <div>
+          <div class="history-text">
             <a
               v-if="isValidUrl(item.data)"
               :href="item.data"
@@ -42,7 +42,7 @@ onMounted(async () => {
               target="_blank"
               >{{ item.data }}</a
             >
-            <div v-else>{{ item.data }}</div>
+            <div v-else :title="item.data">{{ item.data }}</div>
             <div class="text-muted">
               Scanned {{ toDisplayDate(item.scannedUtcDateTime) }}
             </div>
@@ -86,11 +86,17 @@ ul {
       margin: 0.5em 0;
       display: flex;
 
+      .history-text {
+        max-width: calc(100% - 80px);
+        flex-direction: column;
+      }
+
       > * {
         margin: 0;
         display: inline-flex;
         align-items: baseline;
         flex-grow: 1;
+        word-break: break-word;
       }
 
       .text-muted {
@@ -112,5 +118,17 @@ ul {
 }
 .centered {
   text-align: center;
+}
+
+@media (min-width: 640px) {
+  ul {
+    li {
+      .history-item {
+        .history-text {
+          flex-direction: row;
+        }
+      }
+    }
+  }
 }
 </style>
