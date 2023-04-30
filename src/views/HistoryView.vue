@@ -67,11 +67,11 @@ onMounted(async () => {
         </PanelContainer>
       </li>
     </ul>
+    <FrequentlyAskedQuestions />
   </template>
   <p v-else class="centered">
     Your previous <router-link to="/">scans</router-link> will appear here
   </p>
-  <FrequentlyAskedQuestions />
 </template>
 
 <style scoped lang="scss">
