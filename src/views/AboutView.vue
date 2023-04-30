@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions.vue'
+</script>
 
 <template>
   <h1>About QR Reader</h1>
@@ -43,6 +45,7 @@
       readability and greater storage capacity compared to standard barcodes
     </li>
   </ul>
+  <FrequentlyAskedQuestions />
 </template>
 
 <style scoped lang="scss"></style>

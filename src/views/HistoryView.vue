@@ -8,6 +8,7 @@ import {
   useDateFormatter,
   useUrlValidation,
 } from '../composables'
+import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions.vue'
 
 const { copyToClipboard } = useClipboard()
 const { toDisplayDate } = useDateFormatter()
@@ -70,6 +71,7 @@ onMounted(async () => {
   <p v-else class="centered">
     Your previous <router-link to="/">scans</router-link> will appear here
   </p>
+  <FrequentlyAskedQuestions />
 </template>
 
 <style scoped lang="scss">
