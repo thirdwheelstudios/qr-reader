@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watchEffect } from 'vue'
 import QRCode from 'qrcode'
+import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions.vue'
 
 const dataToEncode = ref('https://google.com')
 const encodedDataUrl = ref<string>()
@@ -30,22 +31,46 @@ watchEffect(() => {
 <template>
   <form @submit.prevent="onSubmit">
     <h1>Create a QR code</h1>
-    <p>Enter text for your qr code:</p>
-    <input
-      type="text"
-      name="dataToEncode"
-      v-model="dataToEncode"
-      placeholder="Enter text for qr code"
-      title="Text to encode in qr code"
-    />
-    <img :src="encodedDataUrl" :title="dataToEncode" />
-    <p>Set the qr code colors:</p>
-    <div class="color-picker">
-      <input type="color" name="darkColor" v-model="darkColor" /> QR code
+    <p>
+      Create your own personalized QR codes with our online QR code maker. Enter
+      whatever data you want and it will produce a code for you.
+    </p>
+    <p>
+      You can also customize the colors of the QR code and it's background to
+      your liking using the color pickers below.
+    </p>
+    <div>
+      <label for="dataToEncode">Enter text for your qr code:</label>
+      <input
+        id="dataToEncode"
+        type="text"
+        name="dataToEncode"
+        v-model="dataToEncode"
+        placeholder="Enter text for qr code"
+        title="Text to encode in qr code"
+      />
+      <img :src="encodedDataUrl" :title="dataToEncode" />
+      <label for="darkColor">Customize colors:</label>
+      <div class="color-picker">
+        <input
+          id="darkColor"
+          type="color"
+          name="darkColor"
+          v-model="darkColor"
+        />
+        QR code
+      </div>
+      <div class="color-picker">
+        <input
+          id="lightColor"
+          type="color"
+          name="lightColor"
+          v-model="lightColor"
+        />
+        Background
+      </div>
     </div>
-    <div class="color-picker">
-      <input type="color" name="lightColor" v-model="lightColor" /> Background
-    </div>
+    <FrequentlyAskedQuestions />
   </form>
 </template>
 
@@ -53,35 +78,40 @@ watchEffect(() => {
 $shadow-color: #b8bce854;
 
 form {
-  text-align: center;
+  max-width: 600px;
+  margin: auto;
 
-  p {
-    margin: 0.5em 0;
-  }
+  div {
+    text-align: center;
 
-  input[type='text'] {
-    display: block;
-    margin: 1em auto;
-    padding: 0.75em 1em;
-    border-radius: 0.25em;
-    border: 1px solid $shadow-color;
-    box-shadow: 0 1px 3px $shadow-color;
-    width: 100%;
-    max-width: 270px;
-    font-size: 1rem;
-  }
+    small {
+      margin: 0.5em 0;
+    }
 
-  img {
-    display: block;
-    margin: 1em auto;
-    padding: 0;
-    border-radius: 1em;
-    box-shadow: 0 1px 3px $shadow-color;
-  }
+    input[type='text'] {
+      display: block;
+      margin: 0.5rem auto;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      border: 1px solid $shadow-color;
+      box-shadow: 0 1px 3px $shadow-color;
+      width: 100%;
+      max-width: 270px;
+      font-size: 1rem;
+    }
 
-  .color-picker {
-    display: inline-block;
-    margin: 0 0.5em;
+    img {
+      display: block;
+      margin: 1rem auto;
+      padding: 0;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px $shadow-color;
+    }
+
+    .color-picker {
+      display: inline-block;
+      margin: 0 0.5rem;
+    }
   }
 }
 </style>
