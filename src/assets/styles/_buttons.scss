@@ -1,7 +1,7 @@
 button {
-  background-color: #6a7cfd;
+  background-color: #1d37fc;
   color: #fff;
-  border: 1px solid #6a7cfd;
+  border: 1px solid #1d37fc;
   padding: 0.5em 0.75em;
   border-radius: 0.3em;
   font-size: 1.2rem;
@@ -11,7 +11,7 @@ button {
 }
 
 button.gradient {
-  background: linear-gradient(90deg, #6a7cfd, #466eee, #6a7cfd);
+  background: linear-gradient(90deg, #1d37fc, #1647e9, #1d37fc);
   background-size: 200% 200%;
   -webkit-animation: animateGradient 2s infinite;
   -moz-animation: animateGradient 2s infinite;
@@ -19,7 +19,8 @@ button.gradient {
 }
 
 button:hover {
-  background-color: #7686fd;
+  background-color: #687afd;
+  border-color: #4f63fc;
 }
 
 button[disabled] {
