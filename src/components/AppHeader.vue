@@ -42,7 +42,7 @@ header {
 
     .navbar-brand {
       text-decoration: none;
-      background: linear-gradient(to right, #6a7cfd, #466eee, #2868d9);
+      background: linear-gradient(to right, #1d37fc, #1647e9, #2868d9);
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
@@ -87,7 +87,7 @@ header {
 
           .nav-link.router-link-active,
           .nav-link:hover {
-            background-color: #6a7cfd;
+            background-color: #1d37fc;
             color: #fff;
           }
         }
