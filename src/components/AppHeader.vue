@@ -52,8 +52,8 @@ header {
       display: flex;
 
       img {
-        max-height: 32px;
-        max-width: 32px;
+        height: 32px;
+        width: 32px;
         align-self: center;
         padding: 0.25em;
       }
