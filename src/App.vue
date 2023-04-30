@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
+import ToastMessagesContainer from './components/toasts/ToastMessagesContainer.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import AppFooter from './components/AppFooter.vue'
     <router-view />
   </main>
   <AppFooter />
+  <ToastMessagesContainer />
 </template>
 
 <style lang="scss">

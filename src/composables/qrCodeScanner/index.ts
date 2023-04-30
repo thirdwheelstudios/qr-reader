@@ -3,8 +3,11 @@ import QrScanner from 'qr-scanner'
 import { ScanResult } from '../../models'
 import { DateTime } from 'luxon'
 import { db } from '../../persistence'
+import { useToastStore } from '../../store'
 
 export function useQrCodeScanner() {
+  const toastStore = useToastStore()
+
   const qrScanner = ref<QrScanner>()
 
   const mapAndSaveResult = async (scanResult: QrScanner.ScanResult) => {
@@ -14,6 +17,8 @@ export function useQrCodeScanner() {
     }
 
     await db.history.add(result)
+
+    toastStore.push('QR Code scanned')
 
     return result
   }

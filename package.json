@@ -14,15 +14,17 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "dexie": "^3.2.3",
     "luxon": "^3.3.0",
-    "pinia": "^2.0.14",
+    "pinia": "^2.0.35",
     "qr-scanner": "^1.4.2",
     "qrcode": "^1.5.1",
+    "uuid": "^9.0.0",
     "vue": "^3.2.25",
     "vue-router": "^4.0.15"
   },
   "devDependencies": {
     "@types/luxon": "^3.2.0",
     "@types/qrcode": "^1.5.0",
+    "@types/uuid": "^9.0.1",
     "@vitejs/plugin-vue": "^2.3.3",
     "sass": "^1.59.2",
     "typescript": "^4.5.4",
